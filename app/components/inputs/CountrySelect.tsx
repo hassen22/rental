@@ -5,7 +5,6 @@ import Select from 'react-select'
 import useCountries from '@/app/hooks/useCountries';
 
 export type CountrySelectValue = {
-  flag: string;
   label: string;
   latlng: number[],
   region: string;
@@ -23,7 +22,7 @@ const CountrySelect: React.FC<CountrySelectProps> = ({
 }) => {
   const { getAll } = useCountries();
 
-  return ( 
+  return (
     <div>
       <Select
         placeholder="Anywhere"
@@ -61,5 +60,5 @@ const CountrySelect: React.FC<CountrySelectProps> = ({
     </div>
    );
 }
- 
+
 export default CountrySelect;
