@@ -25,9 +25,9 @@ const url = "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png";
 const Map: React.FC<MapProps> = ({ center }) => {
   return (
       <MapContainer
-        center={center as L.LatLngExpression || [51, -0.09]}
-        zoom={center ? 4 : 2}
-        scrollWheelZoom={false}
+        center={center as L.LatLngExpression || [36.80277814, 10.1796781]}
+        zoom={7}
+        scrollWheelZoom={true}
         className="h-[35vh] rounded-lg"
       >
         <TileLayer
