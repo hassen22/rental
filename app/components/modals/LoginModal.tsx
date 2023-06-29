@@ -3,13 +3,13 @@
 import { useCallback, useState } from "react";
 import { toast } from "react-hot-toast";
 import { signIn } from 'next-auth/react';
-import { 
-  FieldValues, 
-  SubmitHandler, 
+import {
+  FieldValues,
+  SubmitHandler,
   useForm
 } from "react-hook-form";
-import { FcGoogle } from "react-icons/fc";
-import { AiFillGithub } from "react-icons/ai";
+// import { FcGoogle } from "react-icons/fc";
+// import { AiFillGithub } from "react-icons/ai";
 import { useRouter } from "next/navigation";
 
 import useRegisterModal from "@/app/hooks/useRegisterModal";
@@ -26,8 +26,8 @@ const LoginModal = () => {
   const registerModal = useRegisterModal();
   const [isLoading, setIsLoading] = useState(false);
 
-  const { 
-    register, 
+  const {
+    register,
     handleSubmit,
     formState: {
       errors,
@@ -38,13 +38,13 @@ const LoginModal = () => {
       password: ''
     },
   });
-  
-  const onSubmit: SubmitHandler<FieldValues> = 
+
+  const onSubmit: SubmitHandler<FieldValues> =
   (data) => {
     setIsLoading(true);
 
-    signIn('credentials', { 
-      ...data, 
+    signIn('credentials', {
+      ...data,
       redirect: false,
     })
     .then((callback) => {
@@ -55,7 +55,7 @@ const LoginModal = () => {
         router.refresh();
         loginModal.onClose();
       }
-      
+
       if (callback?.error) {
         toast.error(callback.error);
       }
@@ -77,7 +77,7 @@ const LoginModal = () => {
         id="email"
         label="Email"
         disabled={isLoading}
-        register={register}  
+        register={register}
         errors={errors}
         required
       />
@@ -95,27 +95,27 @@ const LoginModal = () => {
 
   const footerContent = (
     <div className="flex flex-col gap-4 mt-3">
-      <hr />
-      <Button 
-        outline 
+      {/* <hr />
+      <Button
+        outline
         label="Continue with Google"
         icon={FcGoogle}
         onClick={() => signIn('google')}
       />
-      <Button 
-        outline 
+      <Button
+        outline
         label="Continue with Github"
         icon={AiFillGithub}
         onClick={() => signIn('github')}
-      />
+      /> */}
       <div className="
       text-neutral-500 text-center mt-4 font-light">
         <p>First time using Airbnb?
-          <span 
-            onClick={onToggle} 
+          <span
+            onClick={onToggle}
             className="
               text-neutral-800
-              cursor-pointer 
+              cursor-pointer
               hover:underline
             "
             > Create an account</span>
